@@ -33,8 +33,9 @@ class StoryMenuState extends MusicBeatState
 			['satin-panties', "high", "milf"],
 			['cocoa', 'eggnog', 'winter-horrorland'],
 			['senpai', 'roses', 'thorns'],
-	    	['Sunshine', 'Withered', 'run'],
-		    ['Ron', 'Trouble', 'Onslaught']
+	    	['sunshine', 'withered', 'run'],
+		    ['ron', 'trouble', 'onslaught'],
+			['little-man'],
 		];
 	}
 
@@ -50,6 +51,7 @@ class StoryMenuState extends MusicBeatState
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
 		['senpai', 'bf', 'gf'],
+		['bob', 'bf', 'gf'],
 		['bob', 'bf', 'gf'],
 		['bob', 'bf', 'gf']
 	];

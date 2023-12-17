@@ -53,12 +53,12 @@ class Stage extends MusicBeatState
 		'mallEvil' => ['bf-christmas' => [1090, 450], 'monster-christmas' => [100, 150]],
 		'school' => ['gf-pixel' => [580, 430], 'bf-pixel' => [970, 670], 'senpai' => [250, 460], 'senpai-angry' => [250, 460]],
 		'schoolEvil' => ['gf-pixel' => [580, 430], 'bf-pixel' => [970, 670], 'senpai' => [250, 460], 'senpai-angry' => [250, 460]],
-		'sunshine' => ['bob' => [100, 300]],
-		'withered' => ['angrybob' => [100, 300]],
-		'hellstage' => ['hellbob' => [100, 300]],
-		'ron' => ['ron' => [268, 27], 'littleman' => [124, 644]],
-		'trouble' => ['gloopbob' => [100, 300]],
-		'slaught' => ['glitchedbob' => [100, 300]]
+		'stagebob1' => ['bob' => [0, 400]],
+		'stagebob2' => ['angrybob' => [0, 100]],
+		'stagebob3' => ['hellbob' => [0, 400]],
+		'stageron1' => ['ron' => [20, 370], 'littleman' => [120, 730]],
+		'stagebob4' => ['gloopbob' => [0, 400]],
+		'stagebob5' => ['glitchedbob' => [0, 400]]
 	];
 
 	public function new(daStage:String)
@@ -480,155 +480,175 @@ class Stage extends MusicBeatState
 								add(waveSpriteFG);
 						*/
 			}
-			case 'sunshine' :
+			case 'stagebob1':
 			{
-				curStage = 'sunshine';
-				var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('bob/happysky'));
+				camZoom = 1.0;
+				curStage = 'stagebob1';
+				var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('bob/happysky', 'shared'));
 				bg.updateHitbox();
-				bg.active = false;
-				bg.antialiasing = true;
+				swagBacks['bg'] = bg;
 				bg.scrollFactor.set(0.1, 0.1);
-				add(bg);
+				bg.antialiasing = true;
+				bg.active = false;
+				swagBacks['bg'] = bg;
+				toAdd.push(bg);
 				
-				var ground:FlxSprite = new FlxSprite(-537, -158).loadGraphic(Paths.image('bob/happyground'));
+				var ground:FlxSprite = new FlxSprite(-537, -158).loadGraphic(Paths.image('bob/happyground', 'shared'));
 				ground.updateHitbox();
-				ground.active = false;
+				swagBacks['ground'] = ground;
 				ground.antialiasing = true;
-				add(ground);
+				ground.active = false;
+				swagBacks['ground'] = bg;
+				toAdd.push(ground);
 			}
 			
-			case 'withered' :
+			case 'stagebob2':
 			{
-			    curStage = 'withered';
-				var bg:FlxSprite = new FlxSprite( -100).loadGraphic(Paths.image('bob/slightlyannyoed_sky'));
+				camZoom = 1.0;
+			    curStage = 'stagebob2';
+				var bg:FlxSprite = new FlxSprite( -100).loadGraphic(Paths.image('bob/slightlyannyoed_sky', 'shared'));
 				bg.updateHitbox();
-				bg.active = false;
-				bg.antialiasing = true;
+				swagBacks['bg'] = bg;
 				bg.scrollFactor.set(0.1, 0.1);
-				add(bg);
+				bg.antialiasing = true;
+				bg.active = false;
+				swagBacks['bg'] = bg;
+				toAdd.push(bg);
 				
-				var ground:FlxSprite = new FlxSprite(-537, -158).loadGraphic(Paths.image('bob/slightlyannyoed_ground'));
+				var ground:FlxSprite = new FlxSprite(-537, -158).loadGraphic(Paths.image('bob/slightlyannyoed_ground', 'shared'));
 				ground.updateHitbox();
-				ground.active = false;
+				swagBacks['ground'] = ground;
 				ground.antialiasing = true;
-				add(ground);
-			}			
-			//phlox is a little baby
-			case 'run' | 'run-remix-because-its-cool' :
+				ground.active = false;
+				swagBacks['ground'] = ground;
+				toAdd.push(ground);
+			}
+			case 'stagebob3':
 			{
-				curStage = 'hellstage';
+				camZoom = 1.0;
+				curStage = 'stagebob3';
+				var bg:FlxSprite = new FlxSprite( -100).loadGraphic(Paths.image('bob/hell', 'shared'));
 				bg.updateHitbox();
-				bg.active = false;
-				bg.antialiasing = true;
+				swagBacks['bg'] = bg;
 				bg.scrollFactor.set(0.1, 0.1);
-				add(bg);
-					
-				var bg:FlxSprite = new FlxSprite( -100).loadGraphic(Paths.image('bob/hell'));
-				bg.updateHitbox();
-				bg.active = false;
 				bg.antialiasing = true;
-				bg.scrollFactor.set(0.1, 0.1);
-				add(bg);
-				
-				var thingidk:FlxSprite = new FlxSprite( -271).loadGraphic(Paths.image('bob/middlething'));
+				bg.active = false;
+				swagBacks['bg'] = bg;
+				toAdd.push(bg);
+
+				var thingidk:FlxSprite = new FlxSprite( -271).loadGraphic(Paths.image('bob/middlething', 'shared'));
 				thingidk.updateHitbox();
-				thingidk.active = false;
+			    swagBacks['thingidk'] = thingidk;
 				thingidk.antialiasing = true;
 				thingidk.scrollFactor.set(0.3, 0.3);
-				add(thingidk);
+				thingidk.active = false;
+				swagBacks['thingidk'] = thingidk;
+				toAdd.push(thingidk);
 				
-				var dead:FlxSprite = new FlxSprite( -60, 50).loadGraphic(Paths.image('bob/theydead'));
+				var dead:FlxSprite = new FlxSprite( -60, 50).loadGraphic(Paths.image('bob/theydead', 'shared'));
 				dead.updateHitbox();
-				dead.active = false;
+			    swagBacks['dead'] = dead;
 				dead.antialiasing = true;
 				dead.scrollFactor.set(0.8, 0.8);
-				add(dead);
+				dead.active = false;
+				swagBacks['dead'] = dead;
+				toAdd.push(dead);
 
-				var ground:FlxSprite = new FlxSprite(-537, -158).loadGraphic(Paths.image('bob/ground'));
+				var ground:FlxSprite = new FlxSprite(-537, -158).loadGraphic(Paths.image('bob/ground', 'shared'));
 				ground.updateHitbox();
-				ground.active = false;
+				swagBacks['ground'] = ground;
 				ground.antialiasing = true;
-				add(ground);
+				ground.active = false;
+				swagBacks['ground'] = ground;
+				toAdd.push(ground);
 				
-				bobmadshake = new FlxSprite( -198, -118).loadGraphic(Paths.image('bob/bobscreen'));
+				bobmadshake = new FlxSprite( -198, -118).loadGraphic(Paths.image('bob/bobscreen', 'shared'));
 				bobmadshake.scrollFactor.set(0, 0);
+			    swagBacks['bobmadshake'] = bobmadshake;
+				bobmadshake.active = false;
 				bobmadshake.visible = false;
 
 				bobsound = new FlxSound().loadEmbedded(Paths.sound('bobscreen'));
 				
 			}
-			case 'onslaught' :
+			case 'stagebob5':
 			{
-				curStage = 'slaught';
-				var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('bob/scary_sky'));
+				camZoom = 1.0;
+				curStage = 'stagebob5';
+				var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('bob/scary_sky', 'shared'));
 				bg.updateHitbox();
 				bg.active = false;
-				bg.antialiasing = true;
 				bg.scrollFactor.set(0.1, 0.1);
-				add(bg);
-				/*var glitchEffect = new FlxGlitchEffect(8,10,0.4,FlxGlitchDirection.HORIZONTAL);
-				var glitchSprite = new FlxEffectSprite(bg, [glitchEffect]);
-				add(glitchSprite);*/
+				bg.antialiasing = true;
+				bg.active = false;
+				swagBacks['bg'] = bg;
+				toAdd.push(bg);
 				
-				var ground:FlxSprite = new FlxSprite(-537, -158).loadGraphic(Paths.image('bob/GlitchedGround'));
+				var ground:FlxSprite = new FlxSprite(-537, -158).loadGraphic(Paths.image('bob/GlitchedGround', 'shared'));
 				ground.updateHitbox();
-				ground.active = false;
+				swagBacks['ground'] = ground;
 				ground.antialiasing = true;
-				add(ground);
+				ground.active = false;
+				swagBacks['ground'] = ground;
+				toAdd.push(ground);
 				
 			}
-			case 'trouble' :
-				{
-					curStage = 'trouble';
-					var bg:FlxSprite = new FlxSprite(-100,10).loadGraphic(Paths.image('bob/nothappy_sky'));
-					bg.updateHitbox();
-					bg.scale.x = 1.2;
-					bg.scale.y = 1.2;
-					bg.active = false;
-					bg.antialiasing = true;
-					bg.scrollFactor.set(0.1, 0.1);
-					add(bg);
-					/*var glitchEffect = new FlxGlitchEffect(8,10,0.4,FlxGlitchDirection.HORIZONTAL);
-					var glitchSprite = new FlxEffectSprite(bg, [glitchEffect]);
-					add(glitchSprite);*/
+			case 'stagebob4':
+			{
+				camZoom = 1.0;
+				curStage = 'stagebob4';
+				var bg:FlxSprite = new FlxSprite(-100,10).loadGraphic(Paths.image('bob/nothappy_sky', 'shared'));
+				bg.updateHitbox();
+				bg.scale.x = 1.2;
+				bg.scale.y = 1.2;
+			    swagBacks['bg'] = bg;
+				bg.scrollFactor.set(0.1, 0.1);
+				bg.antialiasing = true;
+			    bg.scrollFactor.set(0.1, 0.1);
+			    bg.active = false;
+		    	swagBacks['bg'] = bg;
+		    	toAdd.push(bg);
 					
-					var ground:FlxSprite = new FlxSprite(-537, -250).loadGraphic(Paths.image('bob/nothappy_ground'));
-					ground.updateHitbox();
-					ground.active = false;
-					ground.antialiasing = true;
-					add(ground);
+				var ground:FlxSprite = new FlxSprite(-537, -250).loadGraphic(Paths.image('bob/nothappy_ground', 'shared'));
+				ground.updateHitbox();
+			   	swagBacks['ground'] = ground;
+				ground.antialiasing = true;
+			   	ground.active = false;
+			   	swagBacks['ground'] = ground;
+			   	toAdd.push(ground);
 
-					var deadron:FlxSprite = new FlxSprite(-700, 600).loadGraphic(Paths.image('bob/GoodHeDied'));
-					deadron.updateHitbox();
-					deadron.active = false;
-					deadron.scale.x = 0.8;
-					deadron.scale.y = 0.8;
-					deadron.antialiasing = true;
-					add(deadron);
-					
-				}
-			case 'ron' | 'little-man':
-				{
-				curStage = 'ron';
+				var deadron:FlxSprite = new FlxSprite(-700, 600).loadGraphic(Paths.image('bob/GoodHeDied', 'shared'));
+				deadron.updateHitbox();
+				deadron.scale.x = 0.8;
+				deadron.scale.y = 0.8;
+			    swagBacks['deadron'] = deadron;
+				deadron.antialiasing = true;
+			   	deadron.active = false;
+			   	swagBacks['deadron'] = deadron;
+		   		toAdd.push(deadron);
+			}
+			case 'stageron1':
+			{
+				camZoom = 1.0;
+				curStage = 'stageron1';
 				var bg:FlxSprite = new FlxSprite(-100,10).loadGraphic(Paths.image('bob/happyRon_sky'));
 				bg.updateHitbox();
 				bg.scale.x = 1.2;
 				bg.scale.y = 1.2;
 				bg.active = false;
-				bg.antialiasing = true;
 				bg.scrollFactor.set(0.1, 0.1);
-				add(bg);
-				/*var glitchEffect = new FlxGlitchEffect(8,10,0.4,FlxGlitchDirection.HORIZONTAL);
-				var glitchSprite = new FlxEffectSprite(bg, [glitchEffect]);
-				add(glitchSprite);*/
+				bg.antialiasing = true;
+			   	swagBacks['bg'] = bg;
+		   		toAdd.push(bg);
 				
 				var ground:FlxSprite = new FlxSprite(-537, -250).loadGraphic(Paths.image('bob/happyRon_ground'));
 				ground.updateHitbox();
 				ground.active = false;
 				ground.antialiasing = true;
-				add(ground);
+			   	swagBacks['ground'] = ground;
+		   		toAdd.push(ground);
 					
-				}
+			}
 			default:
 				{
 					camZoom = 0.9;
@@ -784,7 +804,7 @@ class Stage extends MusicBeatState
 			switch (curStage)
 			{
 				case 'halloween':
-					if (FlxG.random.bool(Conductor.bpm > 320 ? 100 : 10) && curBeat > lightningStrikeBeat + lightningOffset)
+					if (FlxG.random.bool(Conductor.bpm > 320 ? 100: 10) && curBeat > lightningStrikeBeat + lightningOffset)
 					{
 						if (FlxG.save.data.distractions)
 						{
@@ -829,7 +849,7 @@ class Stage extends MusicBeatState
 						}
 					}
 
-					if (curBeat % 8 == 4 && FlxG.random.bool(Conductor.bpm > 320 ? 150 : 30) && !trainMoving && trainCooldown > 8)
+					if (curBeat % 8 == 4 && FlxG.random.bool(Conductor.bpm > 320 ? 150: 30) && !trainMoving && trainCooldown > 8)
 					{
 						if (FlxG.save.data.distractions)
 						{

@@ -74,7 +74,7 @@ class Note extends FlxSprite
 
 	public var children:Array<Note> = [];
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inCharter:Bool = false, ?isAlt:Bool = false, ?bet:Float = 0)
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inCharter:Bool = false, ?isAlt:Bool = false, ?_warning:Bool = false, ?_mustHitNotes:Bool = false, ?bet:Float = 0)
 	{
 		super();
 
@@ -87,6 +87,9 @@ class Note extends FlxSprite
 
 		this.prevNote = prevNote;
 		isSustainNote = sustainNote;
+
+		warning = _warning;
+		mustHitNotes = _mustHitNotes;
 
 		x += 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?

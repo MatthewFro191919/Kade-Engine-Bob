@@ -23,4 +23,4 @@ run:hellbob:7
 ron:ron:7
 trouble:gloop-bob:8
 onslaught:glitched-bob:8
-little-man:little-man:8
+little-man:little-man:9

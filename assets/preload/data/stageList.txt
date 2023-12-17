@@ -6,3 +6,9 @@ mall
 mallEvil
 school
 schoolEvil
+stagebob1
+stagebob2
+stagebob3
+stageron1
+stagebob4
+stagebob5

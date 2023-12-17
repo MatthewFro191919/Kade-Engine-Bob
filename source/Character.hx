@@ -413,6 +413,7 @@ class Character extends FlxSprite
 
 				addOffset('idle');
 				playAnim('idle');
+				barColor = FlxColor.fromRGB(20, 20, 20);
 
 			case 'bob':
 				tex = Paths.getSparrowAtlas('characters/Bob/original/bob_asset');
@@ -425,6 +426,9 @@ class Character extends FlxSprite
 
 				addOffset('idle');
 				playAnim('idle');
+
+				flipX = true;
+				barColor = FlxColor.fromRGB(255, 255, 255);
 
 			case 'gloopbob':
 				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/oohscary');
@@ -440,6 +444,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = false;
+				barColor = FlxColor.fromRGB(255, 255, 255);
 
 			case 'angrybob':
 				tex = Paths.getSparrowAtlas('characters/Bob/original/angrybob_asset');
@@ -454,6 +459,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = true;
+				barColor = FlxColor.fromRGB(255, 255, 255);
 
 			case 'hellbob':
 				tex = Paths.getSparrowAtlas('characters/Bob/original/hellbob_assets');
@@ -469,6 +475,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = true;
+				barColor = FlxColor.fromRGB(0, 0, 0);
 
 			case 'ron':
 				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/Ron');
@@ -486,6 +493,7 @@ class Character extends FlxSprite
 				addOffset("singDOWN", 40, -120);
 				addOffset("Ugh", 71, -40);
 				playAnim('idle');
+				barColor = FlxColor.fromRGB(255, 255, 0);
 			case 'littleman':
 				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/Small_Guy');
 				frames = tex;
@@ -500,6 +508,7 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", 0, 2);
 				addOffset("singDOWN", 0, -10);
 				playAnim('idle');
+				barColor = FlxColor.fromRGB(255, 255, 255);
 			case 'pizza':
 				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/PizzaMan');
 				frames = tex;
@@ -511,6 +520,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Right', 29, false);
 				addOffset('idle');
 				playAnim('idle');
+				barColor = FlxColor.fromRGB(255, 0, 0);
 			case 'tankman':
 				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/Tankman');
 				frames = tex;
@@ -533,6 +543,7 @@ class Character extends FlxSprite
 				addOffset("singRIGHT-alt", -89, -51);
 				addOffset("singDOWN-alt", 40, -120);
 				playAnim('idle');
+				barColor = FlxColor.fromRGB(255, 255, 255);
 			default:
 				parseDataFile();
 		}

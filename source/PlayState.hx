@@ -547,32 +547,32 @@ class PlayState extends MusicBeatState
 				case 7:
 					if (SONG.songId == 'sunshine')
 					{
-						stageCheck = 'sunshine';
+						stageCheck = 'stagebob1';
 					}
 				case 8:
 					if (SONG.songId == 'withered')
 					{
-						stageCheck = 'withered';
+						stageCheck = 'stagebob2';
 					}
 				case 9:
 					if (SONG.songId == 'run')
 					{
-						stageCheck = 'hellstage';
+						stageCheck = 'stagebob3';
 					}
 				case 10:
 					if (SONG.songId == 'ron' && SONG.songId == 'little-man')
 					{
-						stageCheck = 'ron';
+						stageCheck = 'stageron1';
 					}
 				case 11:
 					if (SONG.songId == 'trouble')
 					{
-						stageCheck = 'trouble';
+						stageCheck = 'stagebob4';
 					}
 				case 12:
 					if (SONG.songId == 'onslaught')
 					{
-						stageCheck = 'slaught';
+						stageCheck = 'stagebob5';
 					}
 			}
 		}
@@ -690,6 +690,18 @@ class PlayState extends MusicBeatState
 				camPos.x += 400;
 			case 'pico':
 				camPos.x += 600;
+				camPos.x += 600;
+				dad.y += 300;
+			case 'gloop-bob':
+				camPos.x += 600;
+				dad.y += 300;
+			case 'angrybob':
+				camPos.x += 600;
+				dad.y += 300;
+			case 'hellbob':
+				camPos.x += 600;
+				dad.y += 350;
+			case 'glitched-bob':
 			case 'senpai':
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case 'senpai-angry':
@@ -1072,48 +1084,6 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
-				case 'sunshine':
-					schoolIntro(doof);
-				case 'withered':
-					schoolIntro(doof);
-				case 'onslaught':
-					var blackScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-					add(blackScreen);
-					blackScreen.scrollFactor.set();
-					camHUD.visible = false;
-
-					new FlxTimer().start(0.1, function(tmr:FlxTimer)
-					{
-						remove(blackScreen);
-						FlxG.sound.play(Paths.sound('Bob_Appear'));
-						camFollow.x = dad.getMidpoint().x;
-						camFollow.y = dad.getMidpoint().y;
-						FlxG.camera.focusOn(camFollow.getPosition());
-						FlxG.camera.zoom = 1.5;
-
-						new FlxTimer().start(0.8, function(tmr:FlxTimer)
-						{
-							camHUD.visible = true;
-							remove(blackScreen);
-							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2.5, {
-								ease: FlxEase.quadInOut,
-								onComplete: function(twn:FlxTween)
-								{
-									var lol:DialogueBox = new DialogueBox(false, dialogue);
-									lol.scrollFactor.set();
-									lol.finishThing = startCountdown;
-									add(lol);
-									lol.cameras = [camHUD];
-								}
-							});
-						});
-					});
-				case 'trouble':
-					ONSLAUGHTIntro(doof);
-				case 'run':
-					schoolIntro(doof);
-				case 'ron':
-					RonIntro(doof);
 				default:
 					startCountdown();
 			}
@@ -4864,7 +4834,7 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong.toLowerCase() == 'little-man' && curBeat == 1497 )
 		{
-			changeDadCharacter('little-man');
+			changeDadCharacter('littleman');
 		}
 		if (curSong.toLowerCase() == 'little-man' && curBeat == 1844 )
 		{
