@@ -316,6 +316,7 @@ class Character extends FlxSprite
 				flipX = true;
 
 				barColor = 0xFF31b0d1;
+
 			case 'bf-spiked':
 				frames = Paths.getSparrowAtlas('bob/BfSpiked');
 				animation.addByPrefix('firstDeath', "BF idle dance", 24, false);
@@ -331,6 +332,8 @@ class Character extends FlxSprite
 				updateHitbox();
 				antialiasing = false;
 				flipX = true;
+
+				barColor = 0xFF31b0d1;
 
 			case 'senpai':
 				frames = Paths.getSparrowAtlas('senpai', 'shared', true);
@@ -349,6 +352,7 @@ class Character extends FlxSprite
 				updateHitbox();
 
 				antialiasing = false;
+	
 			case 'senpai-angry':
 				frames = Paths.getSparrowAtlas('senpai', 'shared', true);
 				animation.addByPrefix('idle', 'Angry Senpai Idle', 24, false);
@@ -401,22 +405,21 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 				barColor = 0xFF9a00f8;
 
-				playAnim('idle');
-			case 'glitchedbob':
-				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/ScaryBobAaaaah');
+			case 'glitched-bob':
+				tex = Paths.getSparrowAtlas('bob/ScaryBobAaaaah');
 				frames = tex;
-				animation.addByPrefix('idle', "idle", 24, false);
+				animation.addByPrefix('idle', "idle???-", 24, false);
 				animation.addByPrefix('singUP', 'up', 24, false);
 				animation.addByPrefix('singDOWN', 'down', 24, false);
 				animation.addByPrefix('singLEFT', 'left', 24, false);
 				animation.addByPrefix('singRIGHT', 'right', 24, false);
 
 				addOffset('idle');
-				playAnim('idle');
-				barColor = FlxColor.fromRGB(20, 20, 20);
+                
+				barColor = 0xFFFFFFF;
 
 			case 'bob':
-				tex = Paths.getSparrowAtlas('characters/Bob/original/bob_asset');
+				tex = Paths.getSparrowAtlas('bob/bob_asset');
 				frames = tex;
 				animation.addByPrefix('idle', "bob_idle", 24, false);
 				animation.addByPrefix('singUP', 'bob_UP', 24, false);
@@ -425,29 +428,29 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'bob_RIGHT', 24, false);
 
 				addOffset('idle');
-				playAnim('idle');
 
 				flipX = true;
-				barColor = FlxColor.fromRGB(255, 255, 255);
 
-			case 'gloopbob':
-				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/oohscary');
-				frames = tex;
-				animation.addByPrefix('idle', "bob_idle", 24, false);
-				animation.addByPrefix('singUP', 'bob_UP', 24, false);
-				animation.addByPrefix('singDOWN', 'bob_DOWN', 24, false);
-				animation.addByPrefix('singLEFT', 'bob_LEFT', 24, false);
-				animation.addByPrefix('singRIGHT', 'bob_RIGHT', 24, false);
-				animation.addByPrefix('Transform', 'bob_transform', 24, false);
+				barColor = 0xFFFFFFF;
 
-				addOffset('idle');
-				playAnim('idle');
+				case 'gloop-bob':
+					tex = Paths.getSparrowAtlas('bob/oohscary');
+					frames = tex;
+					animation.addByPrefix('idle', "bob_idle", 24, false);
+					animation.addByPrefix('singUP', 'bob_UP', 24, false);
+					animation.addByPrefix('singDOWN', 'bob_DOWN', 24, false);
+					animation.addByPrefix('singLEFT', 'bob_LEFT', 24, false);
+					animation.addByPrefix('singRIGHT', 'bob_RIGHT', 24, false);
+					animation.addByPrefix('Transform', 'bob_transform', 24, false);
+	
+					addOffset('idle');
+	
+					flipX = false;
 
-				flipX = false;
-				barColor = FlxColor.fromRGB(255, 255, 255);
-
+				barColor = 0xFF00000;
+				
 			case 'angrybob':
-				tex = Paths.getSparrowAtlas('characters/Bob/original/angrybob_asset');
+				tex = Paths.getSparrowAtlas('bob/angrybob_asset');
 				frames = tex;
 				animation.addByPrefix('idle', "bob_idle", 24, false);
 				animation.addByPrefix('singUP', 'bob_UP', 24, false);
@@ -456,13 +459,13 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'bob_LEFT', 24, false);
 
 				addOffset('idle');
-				playAnim('idle');
 
 				flipX = true;
-				barColor = FlxColor.fromRGB(255, 255, 255);
 
+				barColor = 0xFFFFFFF;
+			
 			case 'hellbob':
-				tex = Paths.getSparrowAtlas('characters/Bob/original/hellbob_assets');
+				tex = Paths.getSparrowAtlas('bob/hellbob_assets');
 				frames = tex;
 				animation.addByPrefix('idle', "bobismad", 24);
 				animation.addByPrefix('singUP', 'lol', 24, false);
@@ -470,15 +473,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singUPmiss', 'lol', 24);
 				animation.addByPrefix('singDOWNmiss', 'lol', 24);
 
-				// addOffset('idle', 0, 27);
+				//addOffset('idle', 0, 27);
 
 				playAnim('idle');
 
 				flipX = true;
-				barColor = FlxColor.fromRGB(0, 0, 0);
+
+				barColor = 0xFF00000;
 
 			case 'ron':
-				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/Ron');
+				tex = Paths.getSparrowAtlas('bob/Tankman');
 				frames = tex;
 				animation.addByPrefix('idle', "Idle", 24);
 				animation.addByPrefix('singUP', 'Sing Up', 24, false);
@@ -491,38 +495,39 @@ class Character extends FlxSprite
 				addOffset("singLEFT", 98, -27);
 				addOffset("singRIGHT", -89, -51);
 				addOffset("singDOWN", 40, -120);
-				addOffset("Ugh", 71, -40);
-				playAnim('idle');
-				barColor = FlxColor.fromRGB(255, 255, 0);
-			case 'littleman':
-				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/Small_Guy');
-				frames = tex;
-				animation.addByPrefix('idle', "idle", 24);
-				animation.addByPrefix('singUP', 'up', 24, false);
-				animation.addByPrefix('singDOWN', 'down', 24, false);
-				animation.addByPrefix('singLEFT', 'left', 24, false);
-				animation.addByPrefix('singRIGHT', 'right', 24, false);
-				addOffset('idle');
-				addOffset("singUP", -10, 8);
-				addOffset("singLEFT", -8, 0);
-				addOffset("singRIGHT", 0, 2);
-				addOffset("singDOWN", 0, -10);
-				playAnim('idle');
-				barColor = FlxColor.fromRGB(255, 255, 255);
+				addOffset("cheer", 71, -40);
+
+				barColor = 0xFFffd800;
+			case 'little-man':
+					tex = Paths.getSparrowAtlas('Small_Guy');
+					frames = tex;
+					animation.addByPrefix('idle', "idle", 24);
+					animation.addByPrefix('singUP', 'up', 24, false);
+					animation.addByPrefix('singDOWN', 'down', 24, false);
+					animation.addByPrefix('singLEFT', 'left', 24, false);
+					animation.addByPrefix('singRIGHT', 'right', 24, false);
+					addOffset('idle');
+					addOffset("singUP", -10, 8);
+					addOffset("singLEFT", -8, 0);
+					addOffset("singRIGHT", 0, 2);
+					addOffset("singDOWN", 0, -10);
+
+				barColor = 0xFFFFFFF;
 			case 'pizza':
-				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/PizzaMan');
-				frames = tex;
-				animation.addByPrefix('idle', "PizzasHere", 29);
-				animation.addByPrefix('fall', "PizzasHere", 29);
-				animation.addByPrefix('singUP', 'Up', 29, false);
-				animation.addByPrefix('singDOWN', 'Down', 29, false);
-				animation.addByPrefix('singLEFT', 'Left', 29, false);
-				animation.addByPrefix('singRIGHT', 'Right', 29, false);
-				addOffset('idle');
-				playAnim('idle');
-				barColor = FlxColor.fromRGB(255, 0, 0);
+					tex = Paths.getSparrowAtlas('littleman/PizzaMan');
+					frames = tex;
+					animation.addByPrefix('idle', "PizzasHere", 29);
+					animation.addByPrefix('fall', "PizzasHere", 29);
+					animation.addByPrefix('singUP', 'Up', 29, false);
+					animation.addByPrefix('singDOWN', 'Down', 29, false);
+					animation.addByPrefix('singLEFT', 'Left', 29, false);
+					animation.addByPrefix('singRIGHT', 'Right', 29, false);
+					addOffset('idle');
+
+				barColor = 0xFFd7d7d9;
+
 			case 'tankman':
-				tex = Paths.getSparrowAtlas('characters/Bob/onslaught/Tankman');
+				tex = Paths.getSparrowAtlas('Tankman');
 				frames = tex;
 				animation.addByPrefix('idle', "Idle", 24);
 				animation.addByPrefix('singUP', 'Sing Up', 24, false);
@@ -543,7 +548,8 @@ class Character extends FlxSprite
 				addOffset("singRIGHT-alt", -89, -51);
 				addOffset("singDOWN-alt", 40, -120);
 				playAnim('idle');
-				barColor = FlxColor.fromRGB(255, 255, 255);
+
+				barColor = 0xFFFFFFF;
 			default:
 				parseDataFile();
 		}
