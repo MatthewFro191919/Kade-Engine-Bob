@@ -51,8 +51,6 @@ class ModCore
 			// A map telling Polymod what the asset type is for unfamiliar file extensions.
 			// extensionMap: [],
 
-			frameworkParams: buildFrameworkParams(),
-
 			// Use a custom backend so we can get a picture of what's going on,
 			// or even override behavior ourselves.
 			customBackend: ModCoreBackend,
@@ -110,7 +108,7 @@ class ModCore
 		return output;
 	}
 
-	static inline function buildFrameworkParams():polymod.FrameworkParams
+	static inline function buildFrameworkParams()
 	{
 		return {
 			assetLibraryPaths: [
