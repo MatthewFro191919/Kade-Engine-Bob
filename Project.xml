@@ -125,8 +125,6 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod"/>
-	<haxelib name="discord-rpc" if="desktop"/>
-	<haxelib name="linc-luajit" if="desktop"/>
 	<haxelib name="hxvm-luajit" if="desktop"/>
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
